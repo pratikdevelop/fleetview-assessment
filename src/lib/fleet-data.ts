@@ -2,9 +2,8 @@ import { add, formatISO } from 'date-fns';
 import type { Trip, FleetEvent } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
-// Helper to generate a unique ID, since we can't add uuid package
-const generateId = () => Math.random().toString(36).substring(2, 15);
-
+// Helper to generate a unique ID
+const generateId = uuidv4;
 
 // Base time for simulation
 const simStartTime = new Date();
@@ -40,7 +39,8 @@ const tripsData: TripParams[] = [
         currentTime = add(currentTime, { minutes: 30 });
         distance += 45;
         fuel -= 2;
-        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 34.0522 + (i * 0.05), longitude: -118.2437 + (i * 0.5) }, speed: 90, fuelLevel: fuel, distanceCovered: distance, totalDistance } });
+        if(fuel < 0) fuel = 0;
+        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 34.0522 + (i * 0.06), longitude: -118.2437 + (i * 0.44) }, speed: 90, fuelLevel: fuel, distanceCovered: distance, totalDistance } });
 
         if (i === 50) {
           events.push({ id: generateId(), timestamp: formatISO(add(currentTime, { seconds: 10})), eventType: 'Speeding', data: { speed: 110, severity: 'medium' } });
@@ -88,7 +88,7 @@ const tripsData: TripParams[] = [
       events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'TripStart', data: { location: { latitude: 39.7392, longitude: -104.9903 } } });
       for (let i = 0; i < 5; i++) {
         currentTime = add(currentTime, { minutes: 15 });
-        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 39.7392 - (i * 0.01), longitude: -104.9903 - (i * 0.05) }, speed: 70, fuelLevel: 98 - i, distanceCovered: i * 18, totalDistance } });
+        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 39.7392 - (i * 0.1), longitude: -104.9903 - (i * 0.2) }, speed: 70, fuelLevel: 98 - (i*2), distanceCovered: i * 20, totalDistance } });
       }
       currentTime = add(currentTime, { minutes: 15 });
       events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'TripCancelled', data: { reason: 'Bad weather', severity: 'high' } });
@@ -114,7 +114,7 @@ const tripsData: TripParams[] = [
             if(i === 11) events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'DeviceOffline', data: { severity: 'high' } });
             continue; // Simulate offline period
         }
-        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 32.7767 - (i * 0.1), longitude: -96.7970 + (i * 0.05) }, speed: 95, fuelLevel: 90 - (i*2), distanceCovered: i * 15, totalDistance } });
+        events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'LocationUpdate', data: { location: { latitude: 32.7767 - (i * 0.1), longitude: -96.7970 + (i * 0.05) }, speed: 95, fuelLevel: 90 - (i*2), distanceCovered: i * 12.8, totalDistance } });
       }
       events.push({ id: generateId(), timestamp: formatISO(currentTime), eventType: 'TripEnd', data: { location: { latitude: 29.7604, longitude: -95.3698 } } });
       return events;
@@ -138,7 +138,7 @@ const tripsData: TripParams[] = [
       for (let i = 0; i < 40; i++) {
         currentTime = add(currentTime, { minutes: 10 });
         fuel -= 3;
-        if (fuel < 15 && i < 25) {
+        if (fuel < 15 && i < 25) { // Ensure refuel doesn't happen at the end
           events.push({ id: generateId(), timestamp: formatISO(add(currentTime, { seconds: 10})), eventType: 'LowFuel', data: { fuelLevel: fuel, severity: 'medium' } });
           currentTime = add(currentTime, { minutes: 20 }); // Refueling stop
           fuel = 100;
