@@ -62,7 +62,7 @@ export default function Dashboard() {
           </div>
         </div>
         <aside className="flex w-full flex-col gap-4 md:w-1/4 md:gap-6">
-          <FleetOverview metrics={fleetMetrics} simulationTime={simulationTime} />
+          <FleetOverview metrics={fleetMetrics} simulationTime={simulationTime} alerts={alerts} />
         </aside>
       </main>
     </div>
