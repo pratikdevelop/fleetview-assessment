@@ -2,22 +2,23 @@
 
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Pause, Play, FastForward } from 'lucide-react';
+import { Pause, Play, FastForward, RotateCcw } from 'lucide-react';
 
 interface SimulationControlsProps {
   isRunning: boolean;
   speed: number;
   play: () => void;
   pause: () => void;
+  reset: () => void;
   setSpeed: (speed: number) => void;
 }
 
-export function SimulationControls({ isRunning, speed, play, pause, setSpeed }: SimulationControlsProps) {
+export function SimulationControls({ isRunning, speed, play, pause, reset, setSpeed }: SimulationControlsProps) {
   const speeds = [1, 5, 10, 50, 100];
 
   return (
     <div className="flex items-center gap-2">
-      <Button variant="ghost" size="icon" onClick={isRunning ? pause : play}>
+      <Button variant="ghost" size="icon" onClick={isRunning ? pause : play} title={isRunning ? 'Pause' : 'Play'}>
         {isRunning ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
         <span className="sr-only">{isRunning ? 'Pause' : 'Play'}</span>
       </Button>
@@ -35,6 +36,10 @@ export function SimulationControls({ isRunning, speed, play, pause, setSpeed }: 
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
+      <Button variant="ghost" size="icon" onClick={reset} title="Reset simulation">
+        <RotateCcw className="h-5 w-5" />
+        <span className="sr-only">Reset</span>
+      </Button>
     </div>
   );
 }

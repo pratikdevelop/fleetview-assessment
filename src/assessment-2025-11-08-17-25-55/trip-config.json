@@ -1,0 +1,52 @@
+[
+  {
+    "id": "trip-1",
+    "tripName": "Cross-Country Long Haul",
+    "driverName": "John Doe",
+    "vehicleModel": "Freightliner Cascadia",
+    "startLocationName": "Houston, TX",
+    "endLocationName": "New York, NY",
+    "maxEvents": 10000,
+    "fileName": "trip_1_cross_country.json"
+  },
+  {
+    "id": "trip-2",
+    "tripName": "Urban Dense Delivery",
+    "driverName": "Jane Smith",
+    "vehicleModel": "Ford Transit",
+    "startLocationName": "Downtown Chicago",
+    "endLocationName": "Suburbs Chicago",
+    "maxEvents": 500,
+    "fileName": "trip_2_urban_dense.json"
+  },
+  {
+    "id": "trip-3",
+    "tripName": "Mountain Route Cancelled",
+    "driverName": "Alex Johnson",
+    "vehicleModel": "Jeep Wrangler",
+    "startLocationName": "Denver, CO",
+    "endLocationName": "Aspen, CO",
+    "maxEvents": 100,
+    "fileName": "trip_3_mountain_cancelled.json"
+  },
+  {
+    "id": "trip-4",
+    "tripName": "Southern Technical Issues",
+    "driverName": "Maria Garcia",
+    "vehicleModel": "Peterbilt 579",
+    "startLocationName": "Dallas, TX",
+    "endLocationName": "Houston, TX",
+    "maxEvents": 1000,
+    "fileName": "trip_4_southern_technical.json"
+  },
+  {
+    "id": "trip-5",
+    "tripName": "Regional Logistics",
+    "driverName": "Sam Wilson",
+    "vehicleModel": "Volvo VNL",
+    "startLocationName": "Atlanta, GA",
+    "endLocationName": "Nashville, TN",
+    "maxEvents": 2000,
+    "fileName": "trip_5_regional_logistics.json"
+  }
+]
