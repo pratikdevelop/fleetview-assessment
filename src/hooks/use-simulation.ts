@@ -111,6 +111,26 @@ export const useSimulation = (trips: Trip[]) => {
     return newState;
   }, []);
 
+  // Allow external ingestion of single events (for SSE or websocket clients)
+  const ingestEvent = useCallback((event: FleetEvent & { tripId?: string }) => {
+    if (!event || !event.id) return;
+    const tripId = (event as any).tripId;
+    if (!tripId) return; // we require tripId to map to a vehicle
+    if (processedEventIdsRef.current.has(event.id)) return; // already handled
+
+    setVehicleStates(currentStates => {
+      const newStates = { ...currentStates };
+      const currentState = newStates[tripId] ?? getInitialVehicleStates(trips)[tripId];
+      if (!currentState) return newStates;
+
+      // Cast to include tripId for processEvent
+      // @ts-ignore
+      newStates[tripId] = processEvent({ ...(event as FleetEvent), tripId }, currentState);
+      processedEventIdsRef.current.add(event.id);
+      return newStates;
+    });
+  }, [processEvent, trips]);
+
   const runSimulation = useCallback(() => {
     if (!lastTickTimeRef.current) {
       lastTickTimeRef.current = Date.now();
@@ -233,5 +253,6 @@ export const useSimulation = (trips: Trip[]) => {
     reset,
     setSpeed: setSimulationSpeed,
     alerts,
+    ingestEvent,
   };
 };

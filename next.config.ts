@@ -5,10 +5,13 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  distDir: 'build',
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: {
+     unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

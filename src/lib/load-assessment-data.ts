@@ -135,27 +135,27 @@ export async function loadAssessmentData(): Promise<Trip[]> {
     // Try to load from JSON files - these paths may need adjustment based on actual import setup
     try {
       const trip1 = await import('@/../src/assessment-2025-11-08-17-25-55/trip_1_cross_country.json').catch(() => null);
-      if (trip1?.default) dataMap['trip-1'] = trip1.default;
+      if (trip1?.default) dataMap['trip-1'] = trip1.default as RawAssessmentEvent[];
     } catch {}
 
     try {
       const trip2 = await import('@/../src/assessment-2025-11-08-17-25-55/trip_2_urban_dense.json').catch(() => null);
-      if (trip2?.default) dataMap['trip-2'] = trip2.default;
+      if (trip2?.default) dataMap['trip-2'] = trip2.default as RawAssessmentEvent[];
     } catch {}
 
     try {
       const trip3 = await import('@/../src/assessment-2025-11-08-17-25-55/trip_3_mountain_cancelled.json').catch(() => null);
-      if (trip3?.default) dataMap['trip-3'] = trip3.default;
+      if (trip3?.default) dataMap['trip-3'] = trip3.default as RawAssessmentEvent[];
     } catch {}
 
     try {
       const trip4 = await import('@/../src/assessment-2025-11-08-17-25-55/trip_4_southern_technical.json').catch(() => null);
-      if (trip4?.default) dataMap['trip-4'] = trip4.default;
+      if (trip4?.default) dataMap['trip-4'] = trip4.default as RawAssessmentEvent[];
     } catch {}
 
     try {
       const trip5 = await import('@/../src/assessment-2025-11-08-17-25-55/trip_5_regional_logistics.json').catch(() => null);
-      if (trip5?.default) dataMap['trip-5'] = trip5.default;
+      if (trip5?.default) dataMap['trip-5'] = trip5.default as RawAssessmentEvent[];
     } catch {}
 
     // Convert loaded data to Trip format

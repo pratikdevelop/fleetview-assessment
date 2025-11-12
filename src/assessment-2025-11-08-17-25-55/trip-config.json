@@ -48,5 +48,106 @@
     "endLocationName": "Nashville, TN",
     "maxEvents": 2000,
     "fileName": "trip_5_regional_logistics.json"
+  },
+
+  {
+    "id": "trip-6",
+    "tripName": "Canada Trans-Continental",
+    "driverName": "Liam Tremblay",
+    "vehicleModel": "Kenworth T680",
+    "startLocationName": "Vancouver, BC",
+    "endLocationName": "Halifax, NS",
+    "maxEvents": 8500,
+    "fileName": "trip_6_canada_trans.json"
+  },
+  {
+    "id": "trip-7",
+    "tripName": "Mexico Border Run",
+    "driverName": "Sofia Ramirez",
+    "vehicleModel": "International LT",
+    "startLocationName": "San Diego, CA",
+    "endLocationName": "Monterrey, NL",
+    "maxEvents": 3200,
+    "fileName": "trip_7_mexico_border.json"
+  },
+  {
+    "id": "trip-8",
+    "tripName": "Alaska Ice Road",
+    "driverName": "Erik Olsen",
+    "vehicleModel": "Mack Pinnacle",
+    "startLocationName": "Anchorage, AK",
+    "endLocationName": "Prudhoe Bay, AK",
+    "maxEvents": 1800,
+    "fileName": "trip_8_alaska_ice.json"
+  },
+  {
+    "id": "trip-9",
+    "tripName": "Hawaii Inter-Island",
+    "driverName": "Leilani Kahananui",
+    "vehicleModel": "Isuzu NPR",
+    "startLocationName": "Honolulu, Oahu",
+    "endLocationName": "Kahului, Maui",
+    "maxEvents": 600,
+    "fileName": "trip_9_hawaii_interisland.json"
+  },
+  {
+    "id": "trip-10",
+    "tripName": "Pacific Northwest Loop",
+    "driverName": "Noah Patel",
+    "vehicleModel": "Western Star 49X",
+    "startLocationName": "Seattle, WA",
+    "endLocationName": "Portland, OR",
+    "maxEvents": 2500,
+    "fileName": "trip_10_pacific_nw.json"
+  },
+  {
+    "id": "trip-11",
+    "tripName": "Florida Everglades Delivery",
+    "driverName": "Carlos Mendoza",
+    "vehicleModel": "Ram 5500",
+    "startLocationName": "Miami, FL",
+    "endLocationName": "Naples, FL",
+    "maxEvents": 900,
+    "fileName": "trip_11_florida_everglades.json"
+  },
+  {
+    "id": "trip-12",
+    "tripName": "Great Lakes Freight",
+    "driverName": "Ava Kowalski",
+    "vehicleModel": "Volvo VNR",
+    "startLocationName": "Detroit, MI",
+    "endLocationName": "Milwaukee, WI",
+    "maxEvents": 4000,
+    "fileName": "trip_12_great_lakes.json"
+  },
+  {
+    "id": "trip-13",
+    "tripName": "Rocky Mountain Express",
+    "driverName": "Mason Lee",
+    "vehicleModel": "Peterbilt 389",
+    "startLocationName": "Salt Lake City, UT",
+    "endLocationName": "Calgary, AB",
+    "maxEvents": 5500,
+    "fileName": "trip_13_rocky_mtn.json"
+  },
+  {
+    "id": "trip-14",
+    "tripName": "Southwest Desert Haul",
+    "driverName": "Isabella Torres",
+    "vehicleModel": "Freightliner eCascadia",
+    "startLocationName": "Phoenix, AZ",
+    "endLocationName": "Albuquerque, NM",
+    "maxEvents": 3100,
+    "fileName": "trip_14_southwest_desert.json"
+  },
+  {
+    "id": "trip-15",
+    "tripName": "Northeast Overnight",
+    "driverName": "Ethan Kim",
+    "vehicleModel": "Tesla Semi",
+    "startLocationName": "Boston, MA",
+    "endLocationName": "Washington, DC",
+    "maxEvents": 4200,
+    "fileName": "trip_15_northeast_overnight.json"
   }
 ]
